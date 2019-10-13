@@ -5,6 +5,7 @@ import {Button, IconButton, AppBar, Toolbar, LinearProgress} from '@material-ui/
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Pagination from "material-ui-flat-pagination";
 import {Badge} from 'reactstrap';
+import {isIOS, isMobile} from 'react-device-detect';
 
 
 const setDefaultState = () => {
@@ -39,31 +40,68 @@ const setDefaultState = () => {
  */
 class Groups extends Component {
 
+
+	renderMobile(groupList) {
+
+		// const {orientation, viewPort, device, scroll } = this.props.client.screen;
+
+		return (<div>
+			<h1>Lijst</h1>
+			{groupList.map( group => <Presentation key={group.id}/>)}
+		</div>)
+
+	}
+
+	renderDesktop(groupList) {
+		// const {orientation, viewPort, device, scroll } = this.props.client.screen;
+		return(<div>
+			<h1>Lijst</h1>
+			{groupList.map( group => <Presentation key={group.id}/>)}
+		</div>);
+	}
+
 	render() {
 
 		// get list of groups
-		const {client, group} = this.props;		     	
+		const {client, group} = this.props;		
 
+		console.log(client);
+
+		/***
+		 * Display Settings
+		 * widths, heights, orientation (portrait/landscape)
+		 * Display orientation change is detected
+		 */     
+		const {screen} = client;
+		if(!screen) return null;
+
+		const {
+			orientation, // portrait-primary, portrait=landscape
+			viewPort, // clientWIdth, offsetWidth, scrollWidth etc.
+			device, // widht, availableWidth, height, availableHeight
+			scroll // clientWIdth, offsetWidth, scrollWidth, scrollHeight etc.
+		} = screen;
+
+		/***
+		 * Mock data
+		 */
 		const groupList = group.data;		
  
 		return (
 			<div className="container">
-				<div>
-					<h1>Lijst</h1>
-					{groupList.map( group => <Presentation />)}
-				</div>
+				{isMobile ? this.renderMobile(groupList) : this.renderDesktop(groupList) }				
 			</div>
-
 		);
 	}
 }
+
 
 /***
  * Einde Code Sectie
  */
 
 
-const mapStateToProps = ({client, group}) => {	
+const mapStateToProps = ({client, group}) => {		
 	return {client, group};
 };
 

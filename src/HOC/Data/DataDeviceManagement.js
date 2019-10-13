@@ -21,7 +21,22 @@ const initialState = () => {
  */
 class DataDeviceManagement extends Component {
 
-    state = initialState();       
+    state = initialState();     
+
+    /***
+     * Forward information on display and device
+     */
+    componentDidMount() { 
+
+        const screen = this.getScreenDimensions();
+        console.log('**** Screen ', screen);
+        store.dispatch({ type: actions.CLIENT_DEVICE_SCREEN, payload: screen });
+
+        // add window event handlers
+        this.addScreenEventHandlers();
+
+        this.props.setDisplaySettings(isIOS, isMobile); 
+    }  
 
     /***
      * Throttle function: delay event detection
