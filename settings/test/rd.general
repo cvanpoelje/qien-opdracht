@@ -1,0 +1,73 @@
+# Server URI's
+RD_API_URL=localhost:8000/
+
+RD_DEVELOPEMENT_BACKEND_HOST=localhost:8000/
+RD_TEST_BACKEND_HOST=back.test01.risicodelen.nl/
+RD_STAGING_BACKEND_HOST=back.staging.risicodelen.nl/
+RD_PRODUCTION_HOST=api.risicodelen.nl
+
+# API SETTINGS
+RD_API_TREE=x
+RD_API_SUBTYPE=api
+## Prefixes and Subdomains
+RD_API_DOMAIN=localhost
+RD_API_PORT=8000
+RD_API_PROTOCOL=https
+
+## Version Control
+RD_API_VERSION=v1
+RD_API_TEST_VERSION=v1
+
+# Cookies
+
+## Client cookies
+RD_CLIENT_TOKEN_COOKIE=client_token
+
+## Auth Cookies
+RD_AUTH_TOKEN_COOKIE=client_token
+RD_AUTH_LOGGED_IN_STATE_COOKIE=user_logged_in_state
+RD_USER_OBJECT_COOKIE=user_object
+
+## User Cookies
+RD_USER_TOKEN_COOKIE=user_token
+RD_USER_OBJECT_COOKIE=user_object
+
+## User Relationship Cookies
+RD_USER_RELATIONS_OWNED_GROUPS=user_relations_owned_groups
+RD_USER_RELATIONS_FOUNDED_GROUPS=user_relations_founded_groups
+RD_USER_RELATIONS_GROUP_MEMBERSHIPS=user_relations_group_memberships
+
+# Timezone
+## check website of moment-timezone for more configuration options
+RD_TIME_ZONE=Europe/Amsterdam
+
+# Date format
+RD_DATE_FORMAT=dd-MM-yyyy
+
+# Time format
+RD_TIME_FORMAT=HH:mm
+
+
+#---------------------------------------------------------------------------------
+
+# PASSWORD POLICY
+
+## Define required length for USER PASSWORD
+RD_PASSWORD_MIN_LENGTH=8
+
+## Define max length for USER PASSWORD
+RD_PASSWORD_MAX_LENGTH=16
+
+## Password must contain uppercase char
+RD_PASSWORD_HAS_UPPERCASE=true
+
+## Password string must contain lowercase char
+RD_PASSWORD_HAS_LOWERCASE=true
+
+## Password string must contain a number
+RD_PASSWORD_HAS_NUMBER=true
+
+## Password string must contain a special character ($%&@ etc)
+RD_PASSWORD_HAS_SPECIAL_CHAR=true
+
+
