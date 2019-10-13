@@ -13,19 +13,7 @@ export const AuthPreloadedStateComposer = () => {
 	/***
 	 * Init State
 	 */
-	let state = {...AUTH_REDUCER_INIT_STATE};		
-
-	const 
-        userToken = Cookies.get(USER_TOKEN_COOKIE),
-        isLoggedIn = Cookies.get(AUTH_LOGGED_IN_STATE_COOKIE) === 'true';      
-
-    if(userToken) {
-        state = {...state, userToken };
-    }
-
-    if(isLoggedIn) {
-        state = {...state, isLoggedIn };
-    }
+	let state = {...AUTH_REDUCER_INIT_STATE};			
 
     return state;
 }

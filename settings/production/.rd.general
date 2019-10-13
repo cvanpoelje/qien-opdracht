@@ -1,11 +1,3 @@
-RD_API_URL=localhost:8000/
-
-RD_DEVELOPEMENT_BACKEND_HOST=localhost:8000/
-RD_TEST_BACKEND_HOST=back.test01.risicodelen.nl/
-RD_STAGING_BACKEND_HOST=back.staging.risicodelen.nl/
-RD_PRODUCTION_HOST=api.risicodelen.nl
-
-RD_TEST_SERVER_API_URL=back.test01.risicodelen.nl
 
 # API SETTINGS
 RD_API_TREE=x
