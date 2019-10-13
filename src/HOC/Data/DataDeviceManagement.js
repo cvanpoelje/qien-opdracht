@@ -29,7 +29,7 @@ class DataDeviceManagement extends Component {
     componentDidMount() { 
 
         const screen = this.getScreenDimensions();
-        console.log('**** Screen ', screen);
+      
         store.dispatch({ type: actions.CLIENT_DEVICE_SCREEN, payload: screen });
 
         // add window event handlers
@@ -140,20 +140,7 @@ class DataDeviceManagement extends Component {
         }, false);
     } 
 
-    /***
-     * Forward information on display and device
-     */
-    componentDidMount() { 
-
-        const screen = this.getScreenDimensions();
-        store.dispatch({ type: actions.CLIENT_DEVICE_SCREEN, payload: screen });
-
-        // add window event handlers
-        this.addScreenEventHandlers();
-
-        this.props.setDisplaySettings(isIOS, isMobile); 
-    }  
-
+   
     render() {         
         return this.props.children;
     }
