@@ -37,13 +37,10 @@ const styles = {
 const Presentation = props => {
   const [mouseInside, setMouseInside] = useState();
   const [showWidget, setShowWidget] = useState();
-  const clickHandler = () => {
-    setShowWidget(!showWidget);
-  };
 
   return (
     <Card style={  showWidget?styles.active:null, mouseInside?styles.hover:null ,styles.listItem}
-        onClick= {() => clickHandler()}
+        onClick= {() => setShowWidget(!showWidget)}
         onMouseEnter={()=>{setMouseInside(true)}}
         onMouseLeave={()=>{setMouseInside(false)}}
       >
@@ -52,7 +49,8 @@ const Presentation = props => {
       {showWidget ? (
         <div>
           <p>{props.group.founder.fullName} is the founder.</p>
-          List of Owners :
+          
+          <h3>List of Owners :</h3>
           <ul>
             {props.group.owners.map( 
               owner => <li>{owner.fullName} is an owner</li>)}
