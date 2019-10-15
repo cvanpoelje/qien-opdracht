@@ -37,10 +37,13 @@ const styles = {
 const Presentation = props => {
   const [mouseInside, setMouseInside] = useState();
   const [showWidget, setShowWidget] = useState();
+  const clickHandler = () => {
+    setShowWidget(!showWidget);
+  };
 
   return (
     <Card style={  showWidget?styles.active:null, mouseInside?styles.hover:null ,styles.listItem}
-        onClick= {() => setShowWidget(!showWidget)}
+        onClick= {() => clickHandler()}
         onMouseEnter={()=>{setMouseInside(true)}}
         onMouseLeave={()=>{setMouseInside(false)}}
       >
@@ -49,8 +52,7 @@ const Presentation = props => {
       {showWidget ? (
         <div>
           <p>{props.group.founder.fullName} is the founder.</p>
-          
-          <h3>List of Owners :</h3>
+          <h2>List of Owners </h2>
           <ul>
             {props.group.owners.map( 
               owner => <li>{owner.fullName} is an owner</li>)}
@@ -70,6 +72,8 @@ class Groups extends Component {
   renderMobile(groupList) {
     return (
       <div>
+        <h1>List For all the Mobile Users</h1>
+
         {groupList.map(group => (
           <Presentation key={group.id} group={group} />
         ))}
@@ -79,7 +83,8 @@ class Groups extends Component {
 
   renderDesktop(groupList) {
     return (
-      <div>
+      <div className={styles.container}>
+        <h1>List For all the desktop Users</h1>
         {groupList.map(group => (
           <Presentation key={group.id} group={group}/>
         ))}
@@ -114,6 +119,7 @@ class Groups extends Component {
 
     return (
       <div className="container" >
+        
         {isMobile
           ? this.renderMobile(groupList)
           : this.renderDesktop(groupList)}
@@ -125,6 +131,7 @@ class Groups extends Component {
 /***
  * Einde Code Sectie
  */
+
 
 const mapStateToProps = ({ client, group }) => {
   return { client, group };
